@@ -3,7 +3,7 @@ function AsyncVar(value = undefined) {
     this.consumers = {};
 }
 
-AsyncVar.prototype.set = function(value) {
+AsyncVar.prototype.set = function (value) {
     this.value = value;
     for (let key in this.consumers) {
         this.consumers[key](value); // Should I use hasOwnProperty?
@@ -11,12 +11,12 @@ AsyncVar.prototype.set = function(value) {
 };
 AsyncVar.prototype.next = AsyncVar.prototype.set;
 
-AsyncVar.prototype.get = function() {
-    return this.value;  
+AsyncVar.prototype.get = function () {
+    return this.value;
 };
 AsyncVar.prototype.getValue = AsyncVar.prototype.get;
 
-AsyncVar.prototype.sub = function(callback) {
+AsyncVar.prototype.sub = function (callback) {
 
     // This is necessary for "| async" in Angular
     if ("next" in callback) {
@@ -36,8 +36,8 @@ AsyncVar.prototype.sub = function(callback) {
     };
 
     return {
-      usub,
-      unsubscribe: usub  
+        usub,
+        unsubscribe: usub
     };
 }
 AsyncVar.prototype.subscribe = AsyncVar.prototype.sub;
@@ -46,14 +46,14 @@ function AsyncPulse() {
     this.consumers = {};
 }
 
-AsyncPulse.prototype.set = function(value) {
+AsyncPulse.prototype.set = function (value) {
     for (let key in this.consumers) {
         this.consumers[key](value); // Should I use hasOwnProperty?
     }
 };
 AsyncPulse.prototype.next = AsyncPulse.prototype.set;
 
-AsyncPulse.prototype.sub = function(callback) {
+AsyncPulse.prototype.sub = function (callback) {
 
     // This is necessary for "| async" in Angular
     if ("next" in callback) {
@@ -70,8 +70,8 @@ AsyncPulse.prototype.sub = function(callback) {
     };
 
     return {
-      usub,
-      unsubscribe: usub  
+        usub,
+        unsubscribe: usub
     };
 }
 AsyncPulse.prototype.subscribe = AsyncPulse.prototype.sub;
