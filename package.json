@@ -1,6 +1,6 @@
 {
   "name": "bada55asyncutils",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "\"Set of utils to simplify your async work.\"",
   "main": "index.js",
   "scripts": {

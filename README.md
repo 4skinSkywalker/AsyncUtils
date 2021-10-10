@@ -27,14 +27,14 @@ AsyncPulse is able to:
 
 ## Getting started
 
+```js
+let { AsyncVar, AsyncPulse } = require("bada55asyncutils");
+```
+
 ### AsyncVar example
 
 AsyncVar is particularly useful when you have some data and you want to store it's last value and to be able to provide late subscribers its value.
 Those subscribers (consumer functions) will be able to 1) receive the last value emitted and 2) react to any new value that's about to come.
-
-```js
-let { AsyncVar, AsyncPulse } = require("bada55asyncutils");
-```
 
 ```js
 // Initialize the variable by new-ing the AsyncVar constructor
